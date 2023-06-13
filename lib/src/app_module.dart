@@ -1,8 +1,10 @@
+import 'package:do_bem_front/src/modules/register/register_module.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:dio/dio.dart';
 
 import 'modules/login/presenter/login_bloc.dart';
 import 'modules/login/presenter/login_module.dart';
+import 'modules/register/register_bloc.dart';
 import 'modules/splashscreen/presenter/splash_screen.dart';
 import 'modules/splashscreen/presenter/splash_screen_bloc.dart';
 
@@ -20,7 +22,7 @@ class AppModule extends Module{
 
     Bind<SplashScreenBloc>((i) => SplashScreenBloc()),
     Bind<LoginBloc>((i) => LoginBloc()),
-    //Bind<RegisterBloc>((i) => RegisterBloc()),
+    Bind<RegisterBloc>((i) => RegisterBloc()),
 
   ];
 
@@ -30,6 +32,11 @@ class AppModule extends Module{
     ModuleRoute(
         '/login',
         module: LoginModule(),
+        transition: TransitionType.fadeIn
+    ),
+    ModuleRoute(
+        '/register',
+        module: RegisterModule(),
         transition: TransitionType.fadeIn
     ),
 

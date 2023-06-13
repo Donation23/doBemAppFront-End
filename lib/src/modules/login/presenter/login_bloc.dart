@@ -5,7 +5,10 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:dio/dio.dart';
 */
+import 'package:flutter_modular/flutter_modular.dart';
+
 class LoginBloc{
+  toRegisterScreen()=> Modular.to.pushNamed("/register/");
   /*void verifyAuth()=> Modular.to.pushReplacementNamed("/home/");
   void toRegisterScreen()=> Modular.to.pushNamed("/register/");
   void toRecoverScreen()=> Modular.to.pushNamed("/recover/");

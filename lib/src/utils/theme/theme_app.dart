@@ -64,6 +64,7 @@ class ThemeApp{
     return InputDecorationTheme(
       alignLabelWithHint: true,
       hintStyle: TextStyle(color: colorScheme.onBackground.withOpacity(0.6)),
+      enabledBorder:  const UnderlineInputBorder(borderSide:BorderSide(color: Colors.grey)),
     );
   }
 

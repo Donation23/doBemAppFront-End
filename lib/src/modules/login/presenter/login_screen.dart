@@ -86,12 +86,8 @@ class LoginState extends ModularState<Login, LoginBloc> {
                         onChanged: (value) => {},
                         controller: _email,
                         decoration: const InputDecoration(
-                          enabledBorder: UnderlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.grey), // Cor da borda
-                          ),
                           prefixIcon: Icon(Icons.email),
-                          hintText: 'email@examplo.com',
+                          hintText: 'email@exemplo.com',
                           //errorText: !_validate ? "Formato inválido" : null
                         ),
                       ),
@@ -100,12 +96,6 @@ class LoginState extends ModularState<Login, LoginBloc> {
                       TextField(
                         onChanged: (value) => {},
                         controller: _password,
-                        decoration: const InputDecoration(
-                          enabledBorder: UnderlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.grey), // Cor da borda
-                          ),
-                        ),
                       ),
                       Container(
                         alignment: Alignment.center,

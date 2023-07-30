@@ -117,8 +117,6 @@ class LoginState extends ModularState<Login, LoginBloc> {
                           onPressed: () => {},
                           child: const Text(
                             "Login",
-                            style: TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.bold),
                           ),
                         ),
                       ),

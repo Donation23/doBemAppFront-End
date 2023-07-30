@@ -32,6 +32,7 @@ class ThemeApp{
   static ElevatedButtonThemeData elevatedButtonThemeData(ColorScheme colorScheme) =>
       ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
+            textStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             backgroundColor: colorScheme.primary,
             disabledForegroundColor: colorScheme.primaryContainer,
             foregroundColor: colorScheme.onPrimary,

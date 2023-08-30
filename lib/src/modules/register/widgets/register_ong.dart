@@ -8,88 +8,108 @@ class RegisterOng extends StatefulWidget {
 }
 
 class _RegisterOngState extends State<RegisterOng> {
+  var confirmPassword;
   @override
   Widget build(BuildContext context) {
     return Form(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          TextFormField(
-            decoration: InputDecoration(
-              hintText: 'Nome da Instituição',
-              label: Text('Nome'),
+        autovalidateMode: AutovalidateMode.always,
+        onChanged: () {
+          Form.of(primaryFocus!.context!)?.save();
+        },
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            TextFormField(
+              decoration: const InputDecoration(
+                hintText: 'Nome da Instituição',
+                label: Text('Nome'),
+              ),
+              validator: (value) {
+                if (false) {
+                  return '';
+                }
+                return null;
+              },
             ),
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter some text';
-              }
-              return null;
-            },
-          ),
-          TextFormField(
-            decoration: InputDecoration(
-              hintText: 'Email',
-              label: Text('Email'),
+            TextFormField(
+              decoration: const InputDecoration(
+                hintText: 'Email',
+                label: Text('Email'),
+              ),
+              validator: (String? value) {
+                if (value != null &&
+                    !RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                        .hasMatch(value)) {
+                  return ('Digite um email válido');
+                }
+              },
             ),
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter some text';
-              }
-              return null;
-            },
-          ),
-          TextFormField(
-            decoration: InputDecoration(
-              hintText: 'CNPJ',
-              label: Text('CNPJ'),
+            TextFormField(
+              decoration: const InputDecoration(
+                hintText: '0. 000. 000/0001-00',
+                label: Text('CNPJ'),
+              ),
+              validator: (value) {
+                if (false) {
+                  return '';
+                }
+                return null;
+              },
             ),
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter some text';
-              }
-              return null;
-            },
-          ),
-          TextFormField(
-            decoration: InputDecoration(
-              hintText: 'Telefone para contato',
-              label: Text('Telefone'),
+            TextFormField(
+              keyboardType: TextInputType.number,
+              decoration: const InputDecoration(
+                hintText: 'Telefone para contato',
+                label: Text('Telefone'),
+              ),
+              validator: (value) {
+                if (false) {
+                  return '';
+                }
+                return null;
+              },
             ),
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter some text';
-              }
-              return null;
-            },
-          ),
-          TextFormField(
-            obscureText: true,
-            decoration: InputDecoration(
-              hintText: 'Digite a senha',
-              label: Text('Senha'),
+            TextFormField(
+              obscureText: true,
+              decoration: const InputDecoration(
+                hintText: 'Digite a senha',
+                label: Text('Senha'),
+              ),
+              validator: (value) {
+                confirmPassword = value;
+                if (!RegExp(r"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$")
+                    .hasMatch(value!)) {
+                  return ('No minímo 8 caracteres, uma letra e um número');
+                }
+                return null;
+              },
             ),
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter some text';
-              }
-              return null;
-            },
-          ),
-          TextFormField(
-            obscureText: true,
-            decoration: InputDecoration(
-              hintText: 'Digite a senha novamente',
-              label: Text('Confirmar senha'),
+            TextFormField(
+              obscureText: true,
+              decoration: const InputDecoration(
+                hintText: 'Digite a senha novamente',
+                label: Text('Confirmar senha'),
+              ),
+              validator: (value) {
+                if (value!=confirmPassword) {
+                  return 'Senhas são diferentes';
+                }
+                return null;
+              },
             ),
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter some text';
-              }
-              return null;
-            },
-          ),
-        ],
-      )
-    );
+            Center(
+              child: Container(
+                padding: const EdgeInsets.only(top: 0),
+                margin: const EdgeInsets.only(top: 20),
+                child: ElevatedButton(
+                  onPressed: () => {},
+                  child: const Text(
+                    "Registrar",
+                  ),
+                ),
+              ),
+            )
+          ],
+        ));
   }
 }

@@ -136,16 +136,16 @@ class RegisterScreenState extends ModularState<RegisterScreen, RegisterBloc> {
                 
                 //inputs
                 ChangeInputs(_isUser),
-                Container(
-                  padding: const EdgeInsets.only(top: 0),
-                  margin: const EdgeInsets.only(top: 20),
-                  child: ElevatedButton(
-                    onPressed: () => {},
-                    child: const Text(
-                      "Registrar",
-                    ),
-                  ),
-                )
+                // Container(
+                //   padding: const EdgeInsets.only(top: 0),
+                //   margin: const EdgeInsets.only(top: 20),
+                //   child: ElevatedButton(
+                //     onPressed: () => {},
+                //     child: const Text(
+                //       "Registrar",
+                //     ),
+                //   ),
+                // )
               ],
             ),
           ),

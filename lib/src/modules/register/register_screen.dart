@@ -15,14 +15,17 @@ class RegisterScreenState extends ModularState<RegisterScreen, RegisterBloc> {
   TextEditingController _password = TextEditingController();
   TextEditingController _password_confirm = TextEditingController();
   bool _isUser = true;
+  bool isUserPressed = true;
+  bool isOngPressed = false;
+
 
   @override
   Widget build(BuildContext context) {
 
 
     //Retorna o input do usuário se
-    Widget ChangeInputs(_isUser) {
-      if (_isUser == true) {
+    Widget ChangeInputs(isUser) {
+      if (isUser == true) {
         return const RegisterUser();
       } else {
         return const RegisterOng();
@@ -95,9 +98,10 @@ class RegisterScreenState extends ModularState<RegisterScreen, RegisterBloc> {
                     Expanded(
                       flex: 2,
                       child: Column(children: [
-                        const Text(
+                        Text(
                           "Doador",
-                          style: TextStyle(fontSize: 18),
+                          style: isUserPressed  ? TextStyle(fontSize:18, fontWeight: FontWeight.bold ) :
+                                                  TextStyle(fontSize:18),
                         ),
                         IconButton(
                           icon: Image.asset("assets/images/userImage.png"),
@@ -106,6 +110,8 @@ class RegisterScreenState extends ModularState<RegisterScreen, RegisterBloc> {
                             setState(() {
                                 _isUser = true;
                             });
+                            isUserPressed = true;
+                            isOngPressed = false; 
                           },
                         ),
                       ]),
@@ -114,9 +120,10 @@ class RegisterScreenState extends ModularState<RegisterScreen, RegisterBloc> {
                       flex: 2,
                       child: Column(
                         children: [
-                          const Text(
+                           Text(
                             "Ong",
-                            style: TextStyle(fontSize: 18),
+                            style: isOngPressed  ? TextStyle(fontSize:18, fontWeight: FontWeight.bold ) :
+                                                   TextStyle(fontSize:18),
                           ),
                           IconButton(
                             icon: Image.asset(
@@ -126,6 +133,8 @@ class RegisterScreenState extends ModularState<RegisterScreen, RegisterBloc> {
                               setState(() {
                                 _isUser = false;
                               });
+                            isOngPressed = true; 
+                            isUserPressed = false;
                             },
                           ),
                         ],
